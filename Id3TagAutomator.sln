@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Id3TagAutomator", "Id3TagAutomator\Id3TagAutomator.csproj", "{21A365C5-B65C-40D9-AA59-2D6A0B8193C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21A365C5-B65C-40D9-AA59-2D6A0B8193C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21A365C5-B65C-40D9-AA59-2D6A0B8193C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21A365C5-B65C-40D9-AA59-2D6A0B8193C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21A365C5-B65C-40D9-AA59-2D6A0B8193C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20A3EEE7-0714-4B57-8491-FF51C89076B5}
+	EndGlobalSection
+EndGlobal
