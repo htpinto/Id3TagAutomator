@@ -55,13 +55,9 @@ namespace Id3TagAutomator
             }
         }
 
-        private static void ChangeAll(DirectoryInfo di)
+        private static byte[] GetImageBytes(DirectoryInfo di, PictureType type)
         {
-            string[] artistAlbum = di.Name.Split('-');
-            string artist = artistAlbum[0];
-            string album = artistAlbum[1];
-
-            var imgPath = Path.Combine(di.FullName, "FrontCover.jpg");
+            var imgPath = Path.Combine(di.FullName, $"{type}.jpg");
 
 
             byte[] pictureData = new byte[0];
@@ -70,7 +66,20 @@ namespace Id3TagAutomator
                 pictureData = File.ReadAllBytes(imgPath);
             }
 
+            return pictureData;
+        }
 
+        private static void ChangeAll(DirectoryInfo di)
+        {
+            string[] artistAlbum = di.Name.Split('-');
+            string artist = artistAlbum[0];
+            string album = artistAlbum[1];
+
+
+
+
+            byte[] frontCover = GetImageBytes(di, PictureType.FrontCover);
+            byte[] bandOrArtistLogotype = GetImageBytes(di, PictureType.BandOrArtistLogotype);
 
 
 
@@ -101,14 +110,25 @@ namespace Id3TagAutomator
                     tag.Track = Convert.ToInt32(track);
                     tag.Title = title;
 
-                    if (pictureData.Length > 0)
+                    if (frontCover.Length > 0)
                     {
                         tag.Pictures.Add(new PictureFrame()
                         {
                             Description = album,
                             MimeType = "image/jpeg",
-                            PictureData = pictureData,
+                            PictureData = frontCover,
                             PictureType = PictureType.FrontCover
+                        });
+                    }
+
+                    if (bandOrArtistLogotype.Length > 0)
+                    {
+                        tag.Pictures.Add(new PictureFrame()
+                        {
+                            Description = album,
+                            MimeType = "image/jpeg",
+                            PictureData = bandOrArtistLogotype,
+                            PictureType = PictureType.BandOrArtistLogotype
                         });
                     }
 
