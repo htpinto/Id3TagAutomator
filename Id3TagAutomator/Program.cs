@@ -61,6 +61,15 @@ namespace Id3TagAutomator
             string artist = artistAlbum[0];
             string album = artistAlbum[1];
 
+            var imgPath = Path.Combine(di.FullName, "FrontCover.jpg");
+
+
+            byte[] pictureData = new byte[0];
+            if (File.Exists(imgPath))
+            {
+                pictureData = File.ReadAllBytes(imgPath);
+            }
+
 
 
 
@@ -91,6 +100,18 @@ namespace Id3TagAutomator
                     tag.Album = album;
                     tag.Track = Convert.ToInt32(track);
                     tag.Title = title;
+
+                    if (pictureData.Length > 0)
+                    {
+                        tag.Pictures.Add(new PictureFrame()
+                        {
+                            Description = album,
+                            MimeType = "image/jpeg",
+                            PictureData = pictureData,
+                            PictureType = PictureType.FrontCover
+                        });
+                    }
+
                     mp3.WriteTag(tag, Id3Version.V23);
 
 
