@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Id3TagAutomator", "Id3TagAutomator\Id3TagAutomator.csproj", "{21A365C5-B65C-40D9-AA59-2D6A0B8193C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Id3TagAutomator", "Id3TagAutomator\Id3TagAutomator.csproj", "{21A365C5-B65C-40D9-AA59-2D6A0B8193C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Id3.Net", "Id3-master\src\Id3.Net\Id3.Net.csproj", "{203C37C3-67B9-4D34-B1EB-AA9E1DE605CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Id3.Net.Files", "Id3-master\src\Id3.Net.Files\Id3.Net.Files.csproj", "{3DB91951-D79D-458C-A957-A5EFB111FFD9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Id3.Net.Serialization", "Id3-master\src\Id3.Net.Serialization\Id3.Net.Serialization.csproj", "{6BF287D5-9F17-46B5-88BA-56FD9FE6BA97}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Id3.Net.Tests", "tId3-master\est\Id3.Net.Tests\Id3.Net.Tests.csproj", "{3C018790-90A4-4380-9417-01611D122C8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,18 @@ Global
 		{21A365C5-B65C-40D9-AA59-2D6A0B8193C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21A365C5-B65C-40D9-AA59-2D6A0B8193C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21A365C5-B65C-40D9-AA59-2D6A0B8193C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{203C37C3-67B9-4D34-B1EB-AA9E1DE605CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{203C37C3-67B9-4D34-B1EB-AA9E1DE605CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{203C37C3-67B9-4D34-B1EB-AA9E1DE605CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{203C37C3-67B9-4D34-B1EB-AA9E1DE605CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DB91951-D79D-458C-A957-A5EFB111FFD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DB91951-D79D-458C-A957-A5EFB111FFD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DB91951-D79D-458C-A957-A5EFB111FFD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DB91951-D79D-458C-A957-A5EFB111FFD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BF287D5-9F17-46B5-88BA-56FD9FE6BA97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BF287D5-9F17-46B5-88BA-56FD9FE6BA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BF287D5-9F17-46B5-88BA-56FD9FE6BA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BF287D5-9F17-46B5-88BA-56FD9FE6BA97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

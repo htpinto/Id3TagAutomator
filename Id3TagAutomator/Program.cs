@@ -1,5 +1,7 @@
 ﻿using Id3;
 using Id3.Frames;
+using Id3TagAutomator.DataObjects;
+using Newtonsoft.Json;
 
 namespace Id3TagAutomator
 {
@@ -71,11 +73,33 @@ namespace Id3TagAutomator
 
         private static void ChangeAll(DirectoryInfo di)
         {
-            string[] artistAlbum = di.Name.Split('-');
-            string artist = artistAlbum[0];
-            string album = artistAlbum[1];
 
 
+            Album? album = null;
+
+            FileInfo fi = new FileInfo(Path.Combine(di.FullName, "Album.json"));
+            if (!fi.Exists)
+            {
+                string[] artistAlbum = di.Name.Split('-');
+                album = new Album()
+                {
+                    Artist = artistAlbum[0],
+                    Name = artistAlbum[1],
+                    Year = DateTime.Now.Year,
+                };
+
+                using (StreamWriter sw = new StreamWriter(fi.FullName))
+                {
+                    sw.WriteLine(JsonConvert.SerializeObject(album));
+                }
+            }
+            else
+            {
+                using (StreamReader sr = new StreamReader(fi.FullName))
+                {
+                    album = JsonConvert.DeserializeObject<Album>(sr.ReadToEnd());
+                }
+            }
 
 
             byte[] frontCover = GetImageBytes(di, PictureType.FrontCover);
@@ -95,26 +119,45 @@ namespace Id3TagAutomator
                 {
                     Id3Tag tag = new();
 
-
-                    int year = DateTime.Now.Year;
-
                     tag.Copyright = new CopyrightFrame();
-                    tag.Copyright = $"{year} {artist}";
+                    tag.Copyright = $"{album?.Year} {album?.Name}";
 
                     tag.Artists = new ArtistsFrame();
-                    tag.Artists.Value.Add(artist);
-                    tag.Genre = "Alternative Rock";
-                    tag.Band = artist;
+                    tag.Artists.Value.Add(album?.Artist);
+                    tag.Genre = album?.Genre;
+                    tag.Band = album?.Artist;
                     tag.Year = DateTime.Now.Year;
-                    tag.Album = album;
+                    tag.Album = album?.Name;
                     tag.Track = Convert.ToInt32(track);
                     tag.Title = title;
 
+
+                    FileInfo lyricsFile = new FileInfo(Path.Combine(di.FullName, musicFile.Name + "_lyrics.txt"));
+                    if (!File.Exists(lyricsFile.FullName))
+                    {
+                        using (StreamWriter sw = new StreamWriter(lyricsFile.FullName))
+                        {
+                            sw.WriteLine("No Lyrics");
+                        }
+                    }
+
+                    using (StreamReader sr = new StreamReader(lyricsFile.FullName))
+                    {
+                        tag.Lyrics.Add(new LyricsFrame()
+                        {
+                            Lyrics = sr.ReadToEnd(),
+                            EncodingType = Id3TextEncoding.Unicode,
+                            Description = title,
+                            Language = Id3Language.eng
+                        });
+                    }
+
+ 
                     if (frontCover.Length > 0)
                     {
                         tag.Pictures.Add(new PictureFrame()
                         {
-                            Description = album,
+                            Description = album?.Name,
                             MimeType = "image/jpeg",
                             PictureData = frontCover,
                             PictureType = PictureType.FrontCover
@@ -125,7 +168,7 @@ namespace Id3TagAutomator
                     {
                         tag.Pictures.Add(new PictureFrame()
                         {
-                            Description = album,
+                            Description = album?.Artist,
                             MimeType = "image/jpeg",
                             PictureData = bandOrArtistLogotype,
                             PictureType = PictureType.BandOrArtistLogotype

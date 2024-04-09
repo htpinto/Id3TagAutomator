@@ -3,6 +3,10 @@
     "Id3TagAutomator": {
       "commandName": "Project",
       "commandLineArgs": "\"C:\\Users\\htpin\\OneDrive\\Documents\\Ableton\\Gravacoes\\Parallel Universe\\001-The Silence of the Night\\Parallel Universe-The Silence of the Night\""
+    },
+    "Profile 1": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\htpin\\OneDrive\\Documents\\Ableton\\Gravacoes\\Parallel Universe\\001-The Silence of the Night\\Parallel Universe-The Silence of the Night\""
     }
   }
 }
