@@ -6,7 +6,15 @@
     },
     "Profile 1": {
       "commandName": "Project",
-      "commandLineArgs": "\"C:\\Users\\htpin\\OneDrive\\Documents\\Ableton\\Gravacoes\\Parallel Universe\\001-The Silence of the Night\\Parallel Universe-The Silence of the Night\""
+      "commandLineArgs": "\"C:\\Users\\htpin\\OneDrive\\Documents\\Ableton\\Gravacoes\\Htp\\001-Em que mundo vivemos\\HTP-Em que mundo vivemos\""
+    },
+    "Profile 2": {
+      "commandName": "Project",
+      "commandLineArgs": "\"D:\\Ableton\\Gravacoes\\Banda Musical do Pontido com Al Medievo\\Banda Musical do Pontido com Al Medievo-ex tempore\""
+    },
+    "Profile 3": {
+      "commandName": "Project",
+      "commandLineArgs": "\"F:\\Dropbox\\HTP-Em que mundo vivemos\""
     }
   }
 }

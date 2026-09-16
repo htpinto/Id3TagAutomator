@@ -52,8 +52,11 @@ namespace Id3
 
             if (encodingType == Id3TextEncoding.Unicode)
             {
-                if (str[0] == '\xFFFE' || str[0] == '\xFEFF')
-                    str = str.Remove(0, 1);
+                if (str.Length > 0)
+                {
+                    if (str[0] == '\xFFFE' || str[0] == '\xFEFF')
+                        str = str.Remove(0, 1);
+                }
             }
 
             return str;
