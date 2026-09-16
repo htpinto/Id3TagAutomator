@@ -12,8 +12,7 @@ namespace Id3TagAutomator
             DirectoryInfo? di = default;
             if (args.Length == 0)
             {
-                string assemblyLocation = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                di = new DirectoryInfo(Path.GetDirectoryName(assemblyLocation));
+                di = new DirectoryInfo(AppContext.BaseDirectory);
             }
             else
             {
