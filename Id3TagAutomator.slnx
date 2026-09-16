@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="CLAUDE.md" />
+  </Folder>
+  <Project Path="Id3-master/src/Id3.Net.Files/Id3.Net.Files.csproj" />
+  <Project Path="Id3-master/src/Id3.Net.Serialization/Id3.Net.Serialization.csproj" />
+  <Project Path="Id3-master/src/Id3.Net/Id3.Net.csproj" />
+  <Project Path="Id3TagAutomator/Id3TagAutomator.csproj" />
+</Solution>
